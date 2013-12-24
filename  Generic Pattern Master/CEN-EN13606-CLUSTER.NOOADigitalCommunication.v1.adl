@@ -1,0 +1,187 @@
+archetype (adl_version=1.4)
+    CEN-EN13606-CLUSTER.NOOADigitalCommunication.v1
+
+concept
+    [at0002]
+
+language
+    original_language = <[ISO_639-1::en-gb]>
+
+description
+    original_author = <
+        ["organisation"] = <"ERS B.V.">
+        ["name"] = <"GF">
+        ["date"] = <"20131214">
+    >
+    lifecycle_state = <"Draft">
+    details = <
+        ["en-gb"] = <
+            language = <[ISO_639-1::en-gb]>
+            purpose = <"Digital Communication">
+            keywords = <"SIAMM","Pattern">
+            copyright = <"ERS B.V.">
+        >
+    >
+
+definition
+    CLUSTER[at0002] occurrences matches {0..*} matches {  -- NOOADigitalCommunication
+        parts existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+            ELEMENT[at0012] occurrences matches {0..1} matches {  -- NOOADigitalCommunicationMedium
+                value existence matches {0..1} matches {
+                    SIMPLE_TEXT[at0001] occurrences matches {0..1} matches {  -- NOOADigitalCommunicationMedium
+                        originalText existence matches {0..1} matches {"Telephone","Mobile","Fax","Pager","eMail","URL","Other"}
+                    }
+                }
+            }
+            ELEMENT[at0015] occurrences matches {0..*} matches {  -- NOOADigitalCommunicationPreference
+                value existence matches {0..1} matches {
+                    SIMPLE_TEXT[at0003] occurrences matches {0..1} matches {  -- NOOADigitalCommunicationPreference
+                        originalText existence matches {0..1} matches {"Business","DatTime","Weekend","AlltheTime","Evening"}
+                    }
+                }
+            }
+            ELEMENT[at0018] occurrences matches {0..1} matches {  -- NOOADigitalCommunicationDetails
+                value existence matches {0..1} matches {
+                    SIMPLE_TEXT[at0004] occurrences matches {0..1} matches {  -- NOOADigitalCommunicationDetails
+                        originalText existence matches {0..1} matches {"URI","URL","TweetAddress","FaceBookAddress"}
+                    }
+                }
+            }
+            ELEMENT[at0021] occurrences matches {0..1} matches {  -- NOOAAddressDigitalCommunicationUsageCode
+                value existence matches {0..1} matches {
+                    SIMPLE_TEXT[at0005] occurrences matches {0..1} matches {  -- NOOAAddressDigitalCommunicationUsageCode
+                        originalText existence matches {0..1} matches {"Business","Personal","Both"}
+                    }
+                }
+            }
+        }
+        structure_type existence matches {1..1} matches {
+            CS[at0009] occurrences matches {1..1} matches {  -- 
+                codeValue existence matches {0..1} matches {"STRC01"}
+                codingSchemeName existence matches {0..1} matches {"CEN/TC251/EN13606-3:STRUCTURE_TYPE"}
+            }
+        }
+    }
+
+ontology
+    term_definitions = <
+        ["en-gb"] = <
+            items = <
+                ["at0002"] = <
+                    text = <"NOOADigitalCommunication">
+                    description = <"NOOADigitalCommunication">
+                >
+                ["at0012"] = <
+                    text = <"NOOADigitalCommunicationMedium">
+                    description = <"ISO: 22220
+
+A code representing a type of communication mechanism used by a subject of care.
+1- Telephone (Landline)
+2- Telephone Mobile
+3- Fax
+4- Pager
+5- e-mail
+6- URL
+
+8- Other
+
+
+See 13606-3 also">
+                >
+                ["at0015"] = <
+                    text = <"NOOADigitalCommunicationPreference">
+                    description = <"ISO: 22220
+
+An indication of the preferences for use of this contact type.
+
+B- Business hours
+D- Daytime hours
+W- Weekend hours
+A- All the time
+E- Evening hours
+">
+                >
+                ["at0018"] = <
+                    text = <"NOOADigitalCommunicationDetails">
+                    description = <"ISO:22220
+A unique combination of characters used as input to electronic telecommunication equipment for the purpose of contacting a subject of care.
+	•	URI
+	•	URL
+	•	Tweet address
+	•	Facebook address
+	•	E-mail address
+">
+                >
+                ["at0021"] = <
+                    text = <"NOOAAddressDigitalCommunicationUsageCode">
+                    description = <"ISO:22220
+
+A code representing the manner of use that a person applies to an electronic communication medium.
+
+1- Business
+2- Personal
+3- Both
+3-
+">
+                >
+                ["at0001"] = <
+                    text = <"NOOADigitalCommunicationMedium">
+                    description = <"ISO: 22220
+
+A code representing a type of communication mechanism used by a subject of care.
+1- Telephone (Landline)
+2- Telephone Mobile
+3- Fax
+4- Pager
+5- e-mail
+6- URL
+
+8- Other
+
+See 13606-3 also">
+                >
+                ["at0003"] = <
+                    text = <"NOOADigitalCommunicationPreference">
+                    description = <"ISO: 22220
+
+An indication of the preferences for use of this contact type.
+
+B- Business hours
+D- Daytime hours
+W- Weekend hours
+A- All the time
+E- Evening hours
+">
+                >
+                ["at0004"] = <
+                    text = <"NOOADigitalCommunicationDetails">
+                    description = <"ISO:22220
+A unique combination of characters used as input to electronic telecommunication equipment for the purpose of contacting a subject of care.
+	•	URI
+	•	URL
+	•	Tweet address
+	•	Facebook address
+	•	E-mail address
+">
+                >
+                ["at0005"] = <
+                    text = <"NOOAAddressDigitalCommunicationUsageCode">
+                    description = <"ISO:22220
+
+A code representing the manner of use that a person applies to an electronic communication medium.
+
+1- Business
+2- Personal
+3- Both
+3-
+">
+                >
+            >
+        >
+    >
+    constraint_definitions = <
+    >
+    term_binding = <
+    >
+    constraint_binding = <
+    >

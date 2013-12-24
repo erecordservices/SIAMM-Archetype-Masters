@@ -1,0 +1,428 @@
+archetype (adl_version=1.4)
+    CEN-EN13606-COMPOSITION.SALUS_Template.v1
+
+concept
+    [at0000]
+
+language
+    original_language = <[ISO_639-1::en-gb]>
+
+description
+    original_author = <
+        ["date"] = <"20121230">
+    >
+    lifecycle_state = <"Draft">
+    details = <
+        ["en-gb"] = <
+            language = <[ISO_639-1::en-gb]>
+            purpose = <"Defines a Report used in SALUS">
+            copyright = <"ERS B.V.">
+            use = <"Use in FP7 SALUS ">
+        >
+    >
+
+definition
+    COMPOSITION[at0000] occurrences matches {1..1} matches {  -- SALUS PatientReport
+        content existence matches {0..1} cardinality matches {3..3; unordered; unique} matches {
+            SECTION[at0001] occurrences matches {1..1} matches {  -- hasAdministrativeData
+                members existence matches {0..1} cardinality matches {1..1; unordered; unique} matches {
+                    SECTION[at0032] occurrences matches {1..1} matches {  -- AdministrativeData
+                        members existence matches {0..1} cardinality matches {4..4; unordered; unique} matches {
+                            SECTION[at0033] occurrences matches {1..1} matches {  -- hasPatientAdministrativeData
+                                members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                    allow_archetype ENTRY[at0028] occurrences matches {1..1} matches {  -- Hc-ACtor
+                                        include
+                                            archetype_id/value matches {/.*/}
+                                    }
+                                }
+                            }
+                            SECTION[at0034] occurrences matches {1..1} matches {  -- hasDataReporter
+                                members existence matches {0..1} cardinality matches {1..1; unordered} matches {
+                                    allow_archetype ENTRY[at0025] occurrences matches {1..1} matches {  -- HcActor
+                                        include
+                                            archetype_id/value matches {/.*/}
+                                    }
+                                }
+                            }
+                            SECTION[at0035] occurrences matches {1..1} matches {  -- hasOrganisation
+                                members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                    allow_archetype ENTRY[at0027] occurrences matches {1..1} matches {  -- Hc-Actor
+                                        include
+                                            archetype_id/value matches {/.*/}
+                                    }
+                                }
+                            }
+                            SECTION[at0036] occurrences matches {1..1} matches {  -- hasHcProvider
+                                members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                    allow_archetype ENTRY[at0026] occurrences matches {1..1} matches {  -- Hc_Actor
+                                        include
+                                            archetype_id/value matches {/.*/}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            SECTION[at0003] occurrences matches {1..1} matches {  -- hasPatientHcConditions
+                members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                    SECTION[at0004] occurrences matches {1..1} matches {  -- PatientHcConditions
+                        members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                            SECTION[at0005] occurrences matches {1..1} matches {  -- hasHcConditionsPast
+                                members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                    SECTION[at0008] occurrences matches {1..1} matches {  -- HcConditionsPast
+                                        members existence matches {0..1} cardinality matches {0..*; unordered} matches {
+                                            allow_archetype ENTRY[at0042] occurrences matches {0..*} matches {  -- ENTRY
+                                                include
+                                                    archetype_id/value matches {/.*/}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            SECTION[at0006] occurrences matches {1..1} matches {  -- hasHcConditionsActive
+                                members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                    SECTION[at0007] occurrences matches {0..1} matches {  -- HcConditionsActive
+                                        members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                            allow_archetype ENTRY[at0041] occurrences matches {0..*} matches {  -- ENTRY
+                                                include
+                                                    archetype_id/value matches {/.*/}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            SECTION[at0009] occurrences matches {1..1} matches {  -- hasAllergiesIntollerances
+                                members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                    SECTION[at0010] occurrences matches {0..*} matches {  -- AllergiesIntollerances
+                                        members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                            allow_archetype ENTRY[at0029] occurrences matches {0..*} matches {  -- ENTRY
+                                                include
+                                                    archetype_id/value matches {/.*/}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            SECTION[at0011] occurrences matches {1..1} matches {  -- hasFamillyHistory
+                                members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                    SECTION[at0012] occurrences matches {0..1} matches {  -- FamillyHistory
+                                        members existence matches {0..1} cardinality matches {1..1; unordered; unique} matches {
+                                            allow_archetype ENTRY[at0040] occurrences matches {0..*} matches {  -- ENTRY
+                                                include
+                                                    archetype_id/value matches {/.*/}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            SECTION[at0013] occurrences matches {1..1} matches {  -- hasLabResults
+                                members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                    SECTION[at0014] occurrences matches {0..*} matches {  -- LabResults
+                                        members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                            allow_archetype ENTRY[at0043] occurrences matches {0..*} matches {  -- ENTRY
+                                                include
+                                                    archetype_id/value matches {/.*/}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            SECTION[at0015] occurrences matches {1..1} matches {  -- hasProcedures
+                                members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                    SECTION[at0016] occurrences matches {0..*} matches {  -- Procedures
+                                        members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                            allow_archetype ENTRY[at0046] occurrences matches {0..*} matches {  -- ENTRY
+                                                include
+                                                    archetype_id/value matches {/.*/}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            SECTION[at0017] occurrences matches {1..1} matches {  -- hasMedications
+                                members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                    SECTION[at0018] occurrences matches {0..*} matches {  -- Medications
+                                        members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                            allow_archetype ENTRY[at0044] occurrences matches {0..*} matches {  -- ENTRY
+                                                include
+                                                    archetype_id/value matches {/.*/}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            SECTION[at0019] occurrences matches {1..1} matches {  -- hasVitalSigns
+                                members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                    SECTION[at0020] occurrences matches {0..*} matches {  -- VitalSigns
+                                        members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                            allow_archetype ENTRY[at0048] occurrences matches {0..*} matches {  -- ENTRY
+                                                include
+                                                    archetype_id/value matches {/.*/}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            SECTION[at0021] occurrences matches {1..1} matches {  -- hasSocialHistory
+                                members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                    SECTION[at0022] occurrences matches {0..*} matches {  -- SocialHistory
+                                        members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                            allow_archetype ENTRY[at0047] occurrences matches {0..*} matches {  -- ENTRY
+                                                include
+                                                    archetype_id/value matches {/.*/}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            SECTION[at0023] occurrences matches {1..1} matches {  -- hasDeath
+                                members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                    SECTION[at0024] occurrences matches {0..1} matches {  -- Death
+                                        members existence matches {0..1} cardinality matches {1..1; unordered} matches {
+                                            allow_archetype ENTRY[at0037] occurrences matches {1..1} matches {  -- ENTRY
+                                                include
+                                                    archetype_id/value matches {/.*/}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            SECTION[at0030] occurrences matches {1..1} matches {  -- hasPregnancy
+                                members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                    SECTION[at0031] occurrences matches {1..1} matches {  -- Pregnancy
+                                        members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                            allow_archetype ENTRY[at0045] occurrences matches {0..*} matches {  -- ENTRY
+                                                include
+                                                    archetype_id/value matches {/.*/}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            SECTION[at0038] occurrences matches {1..1} matches {  -- hasCodes
+                members existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                    SECTION[at0039] occurrences matches {1..1} matches {  -- Codes
+                        members existence matches {0..1} cardinality matches {1..1; unordered; unique} matches {*}
+                    }
+                }
+            }
+        }
+    }
+
+ontology
+    term_definitions = <
+        ["en-gb"] = <
+            items = <
+                ["at0000"] = <
+                    text = <"SALUS PatientReport">
+                    description = <"SALUS Template
+Only next 3 sections are alowed once
+">
+                >
+                ["at0001"] = <
+                    text = <"hasAdministrativeData">
+                    description = <"*** Placeholder Class to hold bindings to coding systems, ontologies and rules">
+                >
+                ["at0003"] = <
+                    text = <"hasPatientHcConditions">
+                    description = <"*** Placeholder Class to hold bindings to coding systems, ontologies and rules">
+                >
+                ["at0004"] = <
+                    text = <"PatientHcConditions">
+                    description = <"MedicalHistory">
+                >
+                ["at0005"] = <
+                    text = <"hasHcConditionsPast">
+                    description = <"*** Placeholder Class to hold bindings to coding systems, ontologies and rules
+
+MedicalHistoryPast">
+                >
+                ["at0006"] = <
+                    text = <"hasHcConditionsActive">
+                    description = <"*** Placeholder Class to hold bindings to coding systems, ontologies and rules
+MedicalHistory Active">
+                >
+                ["at0007"] = <
+                    text = <"HcConditionsActive">
+                    description = <"MedicalHistory Active">
+                >
+                ["at0008"] = <
+                    text = <"HcConditionsPast">
+                    description = <"MedicalHistoryPast">
+                >
+                ["at0009"] = <
+                    text = <"hasAllergiesIntollerances">
+                    description = <"*** Placeholder Class to hold bindings to coding systems, ontologies and rules">
+                >
+                ["at0010"] = <
+                    text = <"AllergiesIntollerances">
+                    description = <"">
+                >
+                ["at0011"] = <
+                    text = <"hasFamillyHistory">
+                    description = <"*** Placeholder Class to hold bindings to coding systems, ontologies and rules">
+                >
+                ["at0012"] = <
+                    text = <"FamillyHistory">
+                    description = <"">
+                >
+                ["at0013"] = <
+                    text = <"hasLabResults">
+                    description = <"*** Placeholder Class to hold bindings to coding systems, ontologies and rules">
+                >
+                ["at0014"] = <
+                    text = <"LabResults">
+                    description = <"">
+                >
+                ["at0015"] = <
+                    text = <"hasProcedures">
+                    description = <"*** Placeholder Class to hold bindings to coding systems, ontologies and rules">
+                >
+                ["at0016"] = <
+                    text = <"Procedures">
+                    description = <"">
+                >
+                ["at0017"] = <
+                    text = <"hasMedications">
+                    description = <"*** Placeholder Class to hold bindings to coding systems, ontologies and rules">
+                >
+                ["at0018"] = <
+                    text = <"Medications">
+                    description = <"">
+                >
+                ["at0019"] = <
+                    text = <"hasVitalSigns">
+                    description = <"*** Placeholder Class to hold bindings to coding systems, ontologies and rules">
+                >
+                ["at0020"] = <
+                    text = <"VitalSigns">
+                    description = <"">
+                >
+                ["at0021"] = <
+                    text = <"hasSocialHistory">
+                    description = <"*** Placeholder Class to hold bindings to coding systems, ontologies and rules">
+                >
+                ["at0022"] = <
+                    text = <"SocialHistory">
+                    description = <"">
+                >
+                ["at0023"] = <
+                    text = <"hasDeath">
+                    description = <"*** Placeholder Class to hold bindings to coding systems, ontologies and rules">
+                >
+                ["at0024"] = <
+                    text = <"Death">
+                    description = <"">
+                >
+                ["at0030"] = <
+                    text = <"hasPregnancy">
+                    description = <"*** Placeholder Class to hold bindings to coding systems, ontologies and rules">
+                >
+                ["at0031"] = <
+                    text = <"Pregnancy">
+                    description = <"">
+                >
+                ["at0032"] = <
+                    text = <"AdministrativeData">
+                    description = <"Administrative data about the patient and HcProvider
+
+The next Sections are allowed only once.">
+                >
+                ["at0033"] = <
+                    text = <"hasPatientAdministrativeData">
+                    description = <"*** Placeholder Class to hold bindings to coding systems, ontologies and rules">
+                >
+                ["at0034"] = <
+                    text = <"hasDataReporter">
+                    description = <"*** Placeholder Class to hold bindings to coding systems, ontologies and rules">
+                >
+                ["at0035"] = <
+                    text = <"hasOrganisation">
+                    description = <"*** Placeholder Class to hold bindings to coding systems, ontologies and rules">
+                >
+                ["at0036"] = <
+                    text = <"hasHcProvider">
+                    description = <"*** Placeholder Class to hold bindings to coding systems, ontologies and rules">
+                >
+                ["at0038"] = <
+                    text = <"hasCodes">
+                    description = <"*** Placeholder Class to hold bindings to coding systems, ontologies and rules">
+                >
+                ["at0039"] = <
+                    text = <"Codes">
+                    description = <"">
+                >
+                ["at0025"] = <
+                    text = <"HcActor">
+                    description = <"In the Role:DataReporter">
+                >
+                ["at0026"] = <
+                    text = <"Hc_Actor">
+                    description = <"In the Role=Provider">
+                >
+                ["at0027"] = <
+                    text = <"Hc-Actor">
+                    description = <"Organisation">
+                >
+                ["at0028"] = <
+                    text = <"Hc-ACtor">
+                    description = <"Role=Patient">
+                >
+                ["at0029"] = <
+                    text = <"ENTRY">
+                    description = <"">
+                >
+                ["at0037"] = <
+                    text = <"ENTRY">
+                    description = <"">
+                >
+                ["at0040"] = <
+                    text = <"ENTRY">
+                    description = <"">
+                >
+                ["at0041"] = <
+                    text = <"ENTRY">
+                    description = <"">
+                >
+                ["at0042"] = <
+                    text = <"ENTRY">
+                    description = <"">
+                >
+                ["at0043"] = <
+                    text = <"ENTRY">
+                    description = <"">
+                >
+                ["at0044"] = <
+                    text = <"ENTRY">
+                    description = <"">
+                >
+                ["at0045"] = <
+                    text = <"ENTRY">
+                    description = <"">
+                >
+                ["at0046"] = <
+                    text = <"ENTRY">
+                    description = <"">
+                >
+                ["at0047"] = <
+                    text = <"ENTRY">
+                    description = <"">
+                >
+                ["at0048"] = <
+                    text = <"ENTRY">
+                    description = <"">
+                >
+            >
+        >
+    >
+    constraint_definitions = <
+    >
+    term_binding = <
+    >
+    constraint_binding = <
+    >
